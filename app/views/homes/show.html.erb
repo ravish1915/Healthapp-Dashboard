@@ -1,0 +1,17 @@
+<h1>Homes#show</h1>
+<p>Find me in app/views/homes/show.html.erb</p>
+
+<div class="row">
+  <div class="col-xs-6">
+    <h3>Total Visits by Country</h3>
+    <%= pie_chart Visit.group(:country).count %>
+  </div>
+</div>
+
+
+<%= column_chart Visit.group(:country).count %>
+
+<%=column_chart @visits.map { |t| [t.country, t.load_time] } %>
+
+<%=pie_chart @visits.map { |t| [t.country, t.load_time] } %>
+
